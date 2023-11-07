@@ -1,0 +1,85 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+	int    at[20]       ,       bt[20]    ,      ct[20]          ,       tat[20]         ,   wt[20] ,g[20],pt[20];
+	//at arrival time	bt=burst time	ct =completion time 	tat= turnaround time  wt=waiting time
+	int p,j=1;
+	float avgt,avgw;
+	cout<<"Enter the number of process ";
+	cin>>p;
+	cout<<"Enter the arrival time for "<<p<<" processes -  \n";
+	for(int i=0;i<p;i++)
+	{
+		cin>>at[i];
+	}
+	cout<<"Enter the burst time for "<<p<<" processes -  \n";
+	for(int i=0;i<p;i++)
+	{
+		cin>>bt[i];
+	}
+	cout<<"Enter the copmletion time for "<<p<<" processes -  \n";
+	for(int i=0;i<p;i++)
+	{
+		cin>>ct[i];
+	}
+	cout<<"Enter the Priority for "<<p<<" processes -  \n";
+	for(int i=0;i<p;i++)
+	{
+		cin>>pt[i];
+	}
+	cout<<"Turn Around time is - \n";
+	for(int i=0;i<p;i++)
+	{
+	
+		tat[i]=ct[i]-at[i];
+		cout<<tat[i];
+		cout<<"\n";
+	}
+	cout<<"Waiting time is - \n";
+	for(int i=0;i<p;i++)
+	{
+	
+		wt[i]=tat[i]-bt[i];
+		cout<<wt[i];
+		cout<<"\n";
+	}
+	cout<<"Tabular format for Priority algorithm is - \n";
+	cout<<"___________________________________________________________________________________________________________________________\n";
+     cout<<"| Process Number |    |  Arrival Time  |   Completion time |  Burst time  |    |  Turnaround time  |    |  Waiting time | Priority ";     
+	for(int i=0;i<p;i++)
+	{
+		cout<<"\n       P"<<j<<"\t\t\t"<<at[i]<<"\t\t"<<ct[i]<<"\t\t    "<<bt[i]<<"\t\t       "<<tat[i]<<"\t\t\t    "<<wt[i]<<"\t\t"<<pt[i];
+		j++;
+		cout<<"\n";
+	}
+	cout<<"___________________________________________________________________________________________________________________________";
+	cout<<"\n\n";
+	cout<<"Average of turnaround time is : ";
+	for(int i=0;i<p;i++)
+	{
+		avgt = avgt + tat[i];
+	}
+	cout<<avgt/p;
+	cout<<"\n";
+	cout<<"Average of waiting time is : ";
+	for(int i=0;i<p;i++)
+	{
+		avgw = avgw + wt[i];
+	}
+	cout<<avgw/p<<"\n";
+	cout<<"\n\n";
+	
+	
+}
+             
+
+
+
+Process Arrival Burst Priority Completion TAT WT
+P1 0 4 4 4 4 0
+P2 1 5 5 16 15 10
+P3 2 1 7 5 3 2
+P4 3 2 2 18 15 13
+P5 4 3 1 21 17 14
+P6 5 6 6 11 6 0

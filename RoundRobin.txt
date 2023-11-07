@@ -1,0 +1,96 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+int at[20],bt[20],ct[20],tat[20],wt[20] ,g[20], rt[20];
+int p,j=1,s=0;
+float avgt,avgw;
+cout<<"Enter the number of process ";
+cin>>p;
+cout<<"Enter the arrival time for "<<p<<" processes - \n";
+for(int i=0;i<p;i++)
+{
+cin>>at[i];
+}
+cout<<"Enter the burst time for "<<p<<" processes - \n";
+for(int i=0;i<p;i++)
+{
+cin>>bt[i];
+}
+cout<<"Enter the copmletion time for "<<p<<" processes -
+\n";
+for(int i=0;i<p;i++)
+{
+cin>>ct[i];
+}
+cout<<"Enter the CPU first time for each process :\n";
+for(int i=0;i<p;i++)
+{
+cin>>g[i];
+}
+cout<<"Turn Around time is - \n";
+for(int i=0;i<p;i++)
+{
+tat[i]=ct[i]-at[i];
+cout<<tat[i];
+cout<<"\n";
+}
+cout<<"Waiting time is - \n";
+for(int i=0;i<p;i++)
+{
+wt[i]=tat[i]-bt[i];
+cout<<wt[i];
+cout<<"\n";
+}
+cout<<"Response Time is : ";
+for(int i=0;i<p;i++)
+{
+rt[i]=g[i]-at[i];
+cout<<"\n";
+}
+cout<<"Tabular format for RR is - \n";
+cout<<"| Process Number | | Arrival Time | | Burst
+time | | Turnaround time | | Waiting time | Response
+Time";
+for(int i=0;i<p;i++)
+{
+cout<<"\n P"<<j<<"\t\t\t"<<at[i]<<"\t\t
+"<<bt[i]<<"\t\t "<<tat[i]<<"\t\t\t
+"<<wt[i]<<"\t\t"<<at[i];
+cout<<"\n";
+}
+cout<<"Average of turnaround time is : ";
+for(int i=0;i<p;i++)
+{
+avgt = avgt + tat[i];
+}
+cout<<avgt/p;
+cout<<"Average of waiting time is : ";
+for(int i=0;i<p;i++)
+{
+avgw = avgw + wt[i];
+}
+cout<<avgw/p<<"\n";
+cout<<"\n\n";
+int minG = g[0];
+for (int i = 1; i < p; i++)
+{
+if (g[i] < minG)
+{
+minG = g[i];
+}}
+cout << "Time Quantum " << minG << "\n";
+}
+
+
+Process
+No.
+Arrival
+time
+Burst Time Completion
+time
+TAT WT RT
+P1 0 5 12 12 7 0
+P2 1 4 11 10 6 1
+P3 2 2 6 4 2 2
+P4 4 1 9 5 4 4
